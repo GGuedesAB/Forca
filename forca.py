@@ -10,13 +10,13 @@ while True:  # De qualquer forma o if counter == len vai breakar o programa
 
     # Aqui tem um bug
     #   Quando entramos a última letra, devemos primeiro verificar SE ELA ESTÁ NA PALAVRA antes de fazer isso:
- 
+
     if letter in secret_word and len(secret_word) != counter and secret_word.count(letter)==1 and letter not in repeated_letter:
         for index in secret_word:
             position+=1
             if index==letter:
                 break
-         
+
         print(f'A letra {letter} aparece na palavra {secret_word.count(letter)} vezes, na posição {position}')
         position = 0
         counter+=1
@@ -33,11 +33,11 @@ while True:  # De qualquer forma o if counter == len vai breakar o programa
         counter+=secret_word.count(letter)
         list1 = []
         position = 0
- 
+
     else:
         print('A palavra não possui essa letra')
         continue
-    
+
     if counter == len(secret_word):  # Vai ser if, porque precisa que entre nessa condição
         break  # Encontrou a palavra inteira
 
