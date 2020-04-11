@@ -8,9 +8,6 @@ i = 0
 while True:  # De qualquer forma o if counter == len vai breakar o programa
     letter = input('Digite uma letra: ')
 
-    # Aqui tem um bug
-    #   Quando entramos a última letra, devemos primeiro verificar SE ELA ESTÁ NA PALAVRA antes de fazer isso:
-
     if letter in secret_word and len(secret_word) != counter and secret_word.count(letter)==1 and letter not in repeated_letter:
         for index in secret_word:
             position+=1
