@@ -1,47 +1,47 @@
 secret_word = input('Digite a palavra secreta: ')
-enter_pass = True
 counter = 0
 repeated_letter = ''
-position = 1
-list1 = [0,0]
+position = 0  # Começa em 0 porque ao entrar a letra ele já incrementa
+list1 = []
 i = 0
 
-while enter_pass:
+while True:  # De qualquer forma o if counter == len vai breakar o programa
     letter = input('Digite uma letra: ')
 
     # Aqui tem um bug
     #   Quando entramos a última letra, devemos primeiro verificar SE ELA ESTÁ NA PALAVRA antes de fazer isso:
-    if counter == len(secret_word):
-        enter_pass = False
-
-    elif letter in secret_word and len(secret_word) != counter and secret_word.count(letter)==1 and letter not in repeated_letter:
+ 
+    if letter in secret_word and len(secret_word) != counter and secret_word.count(letter)==1 and letter not in repeated_letter:
         for index in secret_word:
             position+=1
             if index==letter:
                 break
-        # Adicionar um espaço entre "letra" e "{letter}"
-        print(f'A letra{letter} aparece na palavra {secret_word.count(letter)} vezes, na posição {position}')
+         
+        print(f'A letra {letter} aparece na palavra {secret_word.count(letter)} vezes, na posição {position}')
         position = 0
         counter+=1
-
+        list1 = []
     elif letter in secret_word and len(secret_word) != counter and secret_word.count(letter)>1 and letter not in repeated_letter:
         for index1 in secret_word:
             position+=1
             if index1==letter and i!=secret_word.count(letter):
-                insert.list1(i,position)
+                list1.insert(i,position)
                 i+=1
             elif i==secret_word.count(letter):
                 break
-        # Adicionar um espaço entre "letra" e "{letter}"
-        print(f'A letra{letter} aparece na palavra {secret_word.count(letter)} vezes, nas posições {lis1}')
+        print(f'A letra {letter} aparece na palavra {secret_word.count(letter)} vezes, nas posições {list1}')
         counter+=secret_word.count(letter)
-
+        list1 = []
+        position = 0
+ 
     else:
         print('A palavra não possui essa letra')
         continue
+    
+    if counter == len(secret_word):  # Vai ser if, porque precisa que entre nessa condição
+        break  # Encontrou a palavra inteira
+
 
 print("Parabéns você conseguiu")
 # TODO: VERIFICAR SE O CÓDIGO ESTÁ RODANDO PERFEITAMENTE, COLOCAR UM MECANISMO DE CHANCES QUE O USUÁRIO TEM
 # TODO: COLOCAR UM MECANISMO DE REPETIÇÃO PARA ASSIM QUE O JOGO TERMINAR PERGUNTAR SE QUER REPETIR
-# DICAS:
-#   A variável enter_pass não é necessária
