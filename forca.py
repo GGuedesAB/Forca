@@ -1,4 +1,5 @@
-secret_word = input('Digite a palavra secreta: ')
+import getpass
+secret_word = getpass.getpass(prompt='Digite a palavra secreta: ')
 counter = 0
 repeated_letter = ''
 position = 0  # Começa em 0 porque ao entrar a letra ele já incrementa
@@ -18,6 +19,7 @@ while True:  # De qualquer forma o if counter == len vai breakar o programa
         position = 0
         counter+=1
         list1 = []
+        
     elif letter in secret_word and len(secret_word) != counter and secret_word.count(letter)>1 and letter not in repeated_letter:
         for index1 in secret_word:
             position+=1
@@ -30,7 +32,7 @@ while True:  # De qualquer forma o if counter == len vai breakar o programa
         counter+=secret_word.count(letter)
         list1 = []
         position = 0
-
+        i = 0
     else:
         print('A palavra não possui essa letra')
         continue
