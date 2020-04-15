@@ -18,6 +18,10 @@ while play_again:
         cased_letter = input('Digite uma letra: ')  # Essa variavel cased_letter serve para passar a letra em minusculo
         letter = cased_letter.lower()
 
+        if len(cased_letter)>1:
+            print('Digite apenas uma letra')
+            continue
+
         if letter in secret_word and len(secret_word) != counter and secret_word.count(letter)==1 and letter not in repeated_letter:
             for index in secret_word:  # Nesse if é a verificação de quando só tem uma letra daquela na palavra
                 position+=1
@@ -56,6 +60,7 @@ while play_again:
             if life==0:
                 print("\n", "GAME-OVER", "\n")
             break  # Encontrou a palavra inteira
+    
     if life != 0:    
         print(f'{secret_word}')
         print("Parabéns você conseguiu")
@@ -64,10 +69,10 @@ while play_again:
 
     y_or_no = input("Deseja jogar novamente? s/n ")
     
-    if y_or_no is "s":
+    if y_or_no is "s" or y_or_no is "S":
         play_again = True
     
     else:
         play_again = False
+
     
-    print()
